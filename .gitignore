@@ -1,0 +1,17 @@
+.vscode
+.idea
+.db
+.DS_Store
+.ini
+.log
+.sass-cache
+css/
+build/
+node_modules/
+package-lock.json
+
+/public/style/*
+main.css
+main.css.map
+scss/main.css
+scss/main.css.map

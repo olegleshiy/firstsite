@@ -1,0 +1,63 @@
+//Color
+$lilac: #5500ca;
+$lightLilac: #a000c6;
+$white: #ffffff;
+$lightGray: #fcfcfc;
+$gray: #3c3c3c;
+$green2: green;
+$green3: rgba($green2, .8);
+
+//Fonts
+$font: 16px;
+$font-bold: Montserrat-Bold,
+sans-serif;
+$font-semiBold: Montserrat-SemiBold,
+sans-serif;
+$font-medium: Montserrat-Medium,
+sans-serif;
+$font-normal: Montserrat-Regular,
+sans-serif;
+$font-light: Montserrat-Light,
+sans-serif;
+
+//Mixin
+@mixin flex($direction, $just, $align) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+  -webkit-box-pack: $just;
+  -ms-flex-pack: $just;
+  justify-content: $just;
+  -webkit-box-align: $align;
+  -ms-flex-align: $align;
+  align-items: $align;
+}
+
+//multiple px to rem conversion
+@mixin rem($property, $px_values) {
+  $base: ($font / 1rem);
+
+  @if type-of($px_values)=='number' {
+    #{$property}: $px_values / $base;
+  }
+
+  @else {
+    $rem_values: ();
+
+    @each $value in $px_values {
+      @if $value==0 {
+        $rem_values: append($rem_values, $value);
+      }
+
+      @else {
+        $rem_values: append($rem_values, ($value / $base));
+      }
+    }
+
+    #{$property}: $rem_values;
+  }
+}

@@ -1,0 +1,86 @@
+@import "fonts", "variables";
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &::after,
+  &::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+  }
+}
+
+h1 {
+  font-size: 40px;
+  padding: 20px;
+  background-color: $lightLilac;
+}
+
+form {
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-normal;
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 15px;
+  background-color: $gray;
+  color: $white;
+}
+
+button {
+  font-size: 18px;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  background-color: $lilac;
+  color: $white;
+}
+
+/*HEADER*/
+@import "header";
+
+/*HOME PAGE*/
+@import "pages/home/section-one";
+
+/*SECOND PAGE*/
+@import "pages/second-page/section-six";
+
+/*FOOTER*/
+@import "footer";

@@ -1,0 +1,167 @@
+@import "../../variables";
+
+.section-six {
+    background-image: url(../img/home-page/form-photo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .form__title {
+        font-family: $font-bold;
+        font-size: 36px;
+        line-height: 1.86;
+        color: $white;
+        text-align: center;
+        padding: 80px 0 40px;
+        margin: 0 auto;
+    }
+
+    .section-one__row {
+        padding-bottom: 75px;
+    }
+
+    .block__form {
+        display: flex;
+        justify-content: center;
+    }
+
+    .field {
+        width: 100%;
+        max-width: 273px;
+        margin: 0 25px 40px 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-family: $font-semiBold;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: rgba($white, .9);
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 3px;
+        box-shadow: 0 5px 20px 0 rgba(0, 56, 64, 0.2);
+        font-family: $font-semiBold;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: $green2;
+    }
+
+    button {
+        background-color: $green2;
+        max-width: 273px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 3px;
+        box-shadow: 0 5px 20px 0 rgba(0, 56, 64, 0.3);
+        font-family: $font-semiBold;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: $white;
+        align-self: flex-end;
+        transition: background-color .3s ease-out;
+        cursor: pointer;
+        margin-bottom: 40px;
+
+        &:hover {
+            background-color: $green3;
+        }
+    }
+
+    ::placeholder {
+        font-family: $font-light;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.5;
+        color: rgba(#003840, .2);
+    }
+
+    .small-text {
+        font-family: $font-light;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.14;
+        color: $white;
+        text-align: center;
+    }
+}
+
+@media all and (max-width: 991px) {
+    .section-six {
+        .form__title {
+            font-size: 28px;
+            line-height: 1.36;
+            padding: 60px 0 20px;
+        }
+
+        .section-one__row {
+            padding-bottom: 60px;
+        }
+
+        .field {
+            margin: 0 20px 20px 0;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input {
+            font-size: 14px;
+        }
+
+        ::placeholder {
+            font-size: 14px;
+        }
+
+        button {
+            padding: 11px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media all and (max-width: 700px) {
+    .section-six {
+        .form__title {
+            font-size: 28px;
+        }
+
+        .block__form {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .field {
+            margin: 0 0 20px 0;
+        }
+
+        button {
+            align-self: center;
+        }
+    }
+}
+
+@media all and (max-width: 480px) {
+    .section-six {
+        .form__title {
+            letter-spacing: -0.1px;
+            font-size: 24px;
+        }
+
+        .field {
+            max-width: 100%;
+        }
+
+        button {
+            max-width: 100%;
+        }
+    }
+}

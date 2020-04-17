@@ -2,16 +2,24 @@
 header('Content-Type: text/html; charset=utf-8');
 require_once 'connection.php'; // подключаем скрипт
 
-if (isset($_POST['name']) && isset($_POST['email'])) {
+if (isset($_POST['firstname']) && isset($_POST['email'])) {
 
-   $name = $_POST['name'];
+   $firstname = $_POST['firstname'];
+   $lastname = $_POST['lastname'];
    $email = $_POST['email'];
-   $name = htmlspecialchars($name);
+   $country = $_POST['country'];
+   $firstname = htmlspecialchars($firstname);
+   $lastname = htmlspecialchars($lastname);
    $email = htmlspecialchars($email);
-   $name = urldecode($name);
+   $country = htmlspecialchars($country);
+   $firstname = urldecode($firstname);
+   $lastname = urldecode($lastname);
    $email = urldecode($email);
-   $name = trim($name);
+   $country = urldecode($country);
+   $firstname = trim($firstname);
+   $lastname = trim($lastname);
    $email = trim($email);
+   $country = trim($country);
    $success_added_data = '';
 
    $to = "olegleshiy7@gmail.com";
@@ -25,25 +33,28 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
    $message = "
     <table style='width:300px; margin: 40px; font-size: 15px; font-family: Helvetica, Arial, sans-serif; color:#1f1000;' cellpadding='0' cellspacing='0'>
     <tr>
-        <td style='padding:10px 5px; width:100px;'><b>NAME:</b></td>
-        <td style='padding: 10px 5px;'>" . $name . "</td></tr>
-    <tr>";
-   if ($email) {
-      $message .= "<tr>
+        <td style='padding:10px 5px; width:100px;'><b>FIRST NAME:</b></td>
+        <td style='padding: 10px 5px;'>" . $firstname . "</td></tr>
+        <td style='padding:10px 5px; width:100px;'><b>LAST NAME:</b></td>
+        <td style='padding: 10px 5px;'>" . $lastname . "</td></tr>
         <td style='padding: 10px 5px;'><b>EMAIL:</b></td>
-        <td style='padding: 10px 5px;'>" . $email . "</td></tr>";
-   }
+        <td style='padding: 10px 5px;'>" . $email . "</td></tr>
+        <td style='padding:10px 5px; width:100px;'><b>COUNTRY:</b></td>
+        <td style='padding: 10px 5px;'>" . $country . "</td></tr>
+    <tr>";
 
    // подключаемся к серверу
-   $link = mysqli_connect($host, $user, $password, $database)
+   $link = mysqli_connect($host_vps, $user_vps, $password_vps, $database_vps)
       or die("Ошибка " . mysqli_error($link));
 
    // экранирования символов для mysql
-   $name = htmlentities(mysqli_real_escape_string($link, $name));
+   $firstname = htmlentities(mysqli_real_escape_string($link, $firstname));
+   $lastname = htmlentities(mysqli_real_escape_string($link, $lastname));
    $email = htmlentities(mysqli_real_escape_string($link, $email));
+   $country = htmlentities(mysqli_real_escape_string($link, $country));
 
    // создание строки запроса
-   $query = "INSERT INTO users VALUES(NULL, '$name','$email')";
+   $query = "INSERT INTO users VALUES(NULL, '$firstname','$lastname','$email','$country')";
 
    // выполняем запрос
    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));

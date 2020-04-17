@@ -62,6 +62,21 @@ input {
   font-size: 18px;
   padding: 10px 15px;
   background-color: $gray;
+  border: 1px solid #cbd6e2;
+  color: $white;
+}
+
+select {
+  font-size: 18px;
+  padding: 10px 15px;
+  background-color: $gray;
+  color: $white;
+  font-size: 18px;
+  border: 1px solid #cbd6e2;
+  -webkit-appearance: none;
+}
+
+select:invalid {
   color: $white;
 }
 
